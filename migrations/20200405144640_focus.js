@@ -1,7 +1,7 @@
 exports.up = (knex) => {
   return knex.schema.createTable('focus', table => {
     table.increments('focus_id').primary()
-    table.string('f_timestamp')
+    table.timestamp('f_timestamp').defaultTo(knex.fn.now())
     table.string('f_area')
     table.string('f_detail')
     table.integer('f_duration')
